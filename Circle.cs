@@ -21,6 +21,11 @@ namespace WhatsTheDiameter
             return this.radius;
         }
 
+        public void setRadius(double r)
+        {
+            this.radius = r;
+        }
+
         override public String ToString()
         {
             return this.radius.ToString();

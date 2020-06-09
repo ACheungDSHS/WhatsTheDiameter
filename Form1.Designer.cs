@@ -68,6 +68,7 @@
             this.SetRadius.TabIndex = 3;
             this.SetRadius.Text = "Set Radius";
             this.SetRadius.UseVisualStyleBackColor = true;
+            this.SetRadius.Click += new System.EventHandler(this.SetRadius_Click);
             // 
             // ShowArray
             // 

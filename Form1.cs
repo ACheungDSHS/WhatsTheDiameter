@@ -12,7 +12,11 @@ namespace WhatsTheDiameter
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// If circles is modified, RedrawCircleCollection() *must* be called, otherwise the indices will get out of date.
+        /// </summary>
         private List<Circle> circles;
+
         public Form1()
         {
             InitializeComponent();
@@ -36,5 +40,12 @@ namespace WhatsTheDiameter
             }
         }
 
+        private void SetRadius_Click(object sender, EventArgs e)
+        {
+            // First let's find the selected item
+            var circle = this.circles[CircleCollection.SelectedIndex];
+            circle.setRadius(Convert.ToDouble(CircleInput.Text));
+            this.RedrawCircleCollection();
+        }
     }
 }
