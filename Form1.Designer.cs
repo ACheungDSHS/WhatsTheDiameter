@@ -33,6 +33,7 @@
             this.CircleCollection = new System.Windows.Forms.ListBox();
             this.SetRadius = new System.Windows.Forms.Button();
             this.ShowArray = new System.Windows.Forms.Button();
+            this.CircleData = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CircleInput
@@ -59,6 +60,7 @@
             this.CircleCollection.Name = "CircleCollection";
             this.CircleCollection.Size = new System.Drawing.Size(347, 277);
             this.CircleCollection.TabIndex = 2;
+            this.CircleCollection.SelectedIndexChanged += new System.EventHandler(this.CircleCollection_SelectedIndexChanged);
             // 
             // SetRadius
             // 
@@ -68,6 +70,7 @@
             this.SetRadius.TabIndex = 3;
             this.SetRadius.Text = "Set Radius";
             this.SetRadius.UseVisualStyleBackColor = true;
+            this.SetRadius.Click += new System.EventHandler(this.SetRadius_Click);
             // 
             // ShowArray
             // 
@@ -77,12 +80,22 @@
             this.ShowArray.TabIndex = 4;
             this.ShowArray.Text = "Show Array";
             this.ShowArray.UseVisualStyleBackColor = true;
+            this.ShowArray.Click += new System.EventHandler(this.ShowArray_Click);
+            // 
+            // CircleData
+            // 
+            this.CircleData.AutoSize = true;
+            this.CircleData.Location = new System.Drawing.Point(454, 165);
+            this.CircleData.Name = "CircleData";
+            this.CircleData.Size = new System.Drawing.Size(0, 13);
+            this.CircleData.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CircleData);
             this.Controls.Add(this.ShowArray);
             this.Controls.Add(this.SetRadius);
             this.Controls.Add(this.CircleCollection);
@@ -102,6 +115,7 @@
         private System.Windows.Forms.ListBox CircleCollection;
         private System.Windows.Forms.Button SetRadius;
         private System.Windows.Forms.Button ShowArray;
+        private System.Windows.Forms.Label CircleData;
     }
 }
 

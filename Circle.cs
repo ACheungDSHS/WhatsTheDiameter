@@ -16,9 +16,18 @@ namespace WhatsTheDiameter
             this.radius = radius;
         }
 
+        /// <summary>
+        /// Should give me the radius d'oh
+        /// </summary>
+        /// <returns>THE RADIUS</returns>
         public double getRadius()
         {
             return this.radius;
+        }
+
+        public void setRadius(double r)
+        {
+            this.radius = r;
         }
 
         override public String ToString()
@@ -27,6 +36,11 @@ namespace WhatsTheDiameter
         }
 
         // Need now getDiameter, getCircumference, getArea.
+
+        public double getDiameter()
+        {
+            return this.radius * 2;
+        }
 
         // Neet also setRadius.
     }

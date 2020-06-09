@@ -11,7 +11,10 @@ using System.Windows.Forms;
 namespace WhatsTheDiameter
 {
     public partial class Form1 : Form
-    {
+    {        
+        /// <summary>
+        /// This must be kept in sync with CircleCollection.
+        /// </summary>
         private List<Circle> circles;
         public Form1()
         {
@@ -34,6 +37,38 @@ namespace WhatsTheDiameter
             {
                 CircleCollection.Items.Add(circle.ToString());
             }
+        }
+
+        private void ShowArray_Click(object sender, EventArgs e)
+        {
+            String msg;
+
+            msg =  "Radius    Diameter\n";
+            msg += "---------------------\n";
+            foreach (var c in this.circles)
+            {
+                msg += String.Format("{0}    {1}\n", c.getRadius(), c.getDiameter());
+            }
+
+            // TODO Set to monospaced font so is properly aligned.
+
+            MessageBox.Show(msg);
+        }
+
+        private void SetRadius_Click(object sender, EventArgs e)
+        {
+            double newRadius = Convert.ToDouble(CircleInput.Text);
+            var c = circles[CircleCollection.SelectedIndex];
+
+            c.setRadius(newRadius);
+            this.RedrawCircleCollection();
+        }
+
+        private void CircleCollection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var c = circles[CircleCollection.SelectedIndex];
+
+            CircleData.Text = String.Format("Radius: {0}\nDiameter: {1}", c.getRadius(), c.getDiameter());
         }
 
     }
