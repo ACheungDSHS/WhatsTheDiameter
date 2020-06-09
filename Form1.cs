@@ -29,6 +29,7 @@ namespace WhatsTheDiameter
             var circle = new Circle(Convert.ToDouble(CircleInput.Text));
             this.circles.Add(circle);
             this.RedrawCircleCollection();
+            this.ShowCircle(circle);
         }
 
         private void RedrawCircleCollection()
@@ -46,6 +47,12 @@ namespace WhatsTheDiameter
             var circle = this.circles[CircleCollection.SelectedIndex];
             circle.setRadius(Convert.ToDouble(CircleInput.Text));
             this.RedrawCircleCollection();
+            this.ShowCircle(circle);
+        }
+
+        private void ShowCircle(Circle c)
+        {
+            MessageBox.Show(String.Format("Circle radius: {0}, circumference: {1}, diameter: {2}", c.getRadius(), 0, 0));
         }
     }
 }
