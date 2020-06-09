@@ -11,12 +11,11 @@ using System.Windows.Forms;
 namespace WhatsTheDiameter
 {
     public partial class Form1 : Form
-    {
+    {        
         /// <summary>
-        /// If circles is modified, RedrawCircleCollection() *must* be called, otherwise the indices will get out of date.
+        /// This must be kept in sync with CircleCollection.
         /// </summary>
         private List<Circle> circles;
-
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +28,6 @@ namespace WhatsTheDiameter
             var circle = new Circle(Convert.ToDouble(CircleInput.Text));
             this.circles.Add(circle);
             this.RedrawCircleCollection();
-            this.ShowCircle(circle);
         }
 
         private void RedrawCircleCollection()
@@ -41,18 +39,37 @@ namespace WhatsTheDiameter
             }
         }
 
-        private void SetRadius_Click(object sender, EventArgs e)
+        private void ShowArray_Click(object sender, EventArgs e)
         {
-            // First let's find the selected item
-            var circle = this.circles[CircleCollection.SelectedIndex];
-            circle.setRadius(Convert.ToDouble(CircleInput.Text));
-            this.RedrawCircleCollection();
-            this.ShowCircle(circle);
+            String msg;
+
+            msg =  "Radius    Diameter\n";
+            msg += "---------------------\n";
+            foreach (var c in this.circles)
+            {
+                msg += String.Format("{0}    {1}\n", c.getRadius(), c.getDiameter());
+            }
+
+            // TODO Set to monospaced font so is properly aligned.
+
+            MessageBox.Show(msg);
         }
 
-        private void ShowCircle(Circle c)
+        private void SetRadius_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(String.Format("Circle radius: {0}, circumference: {1}, diameter: {2}", c.getRadius(), 0, 0));
+            double newRadius = Convert.ToDouble(CircleInput.Text);
+            var c = circles[CircleCollection.SelectedIndex];
+
+            c.setRadius(newRadius);
+            this.RedrawCircleCollection();
         }
+
+        private void CircleCollection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var c = circles[CircleCollection.SelectedIndex];
+
+            CircleData.Text = String.Format("Radius: {0}\nDiameter: {1}", c.getRadius(), c.getDiameter());
+        }
+
     }
 }
