@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,7 +47,7 @@ namespace WhatsTheDiameter
             msg += "---------------------\n";
             foreach (var c in this.circles)
             {
-                msg += String.Format("{0}    {1}\n", c.getRadius(), c.getDiameter());
+                msg += String.Format("{0}              {1}\n", c.getRadius(), c.getDiameter());
             }
 
             // TODO Set to monospaced font so is properly aligned.
