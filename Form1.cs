@@ -43,11 +43,11 @@ namespace WhatsTheDiameter
         {
             String msg;
 
-            msg =  "Radius    Diameter\n";
-            msg += "---------------------\n";
+            msg =  "Radius    Diameter    Circumference    Area\n";
+            msg += "-------------------------------------------------------\n";
             foreach (var c in this.circles)
             {
-                msg += String.Format("{0}              {1}\n", c.getRadius(), c.getDiameter());
+                msg += String.Format("{0}              {1}              {2}              {3}\n", c.getRadius(), c.getDiameter(), c.getCircumference(), c.getArea());
             }
 
             // TODO Set to monospaced font so is properly aligned.
@@ -68,7 +68,7 @@ namespace WhatsTheDiameter
         {
             var c = circles[CircleCollection.SelectedIndex];
 
-            CircleData.Text = String.Format("Radius: {0}\nDiameter: {1}", c.getRadius(), c.getDiameter());
+            CircleData.Text = String.Format("Radius: {0}\nDiameter: {1}\nCircumference: {2}\nArea: {3}", c.getRadius(), c.getDiameter(), c.getCircumference(), c.getArea());
         }
 
     }
