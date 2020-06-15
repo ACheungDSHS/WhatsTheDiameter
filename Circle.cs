@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,5 +43,13 @@ namespace WhatsTheDiameter
         }
 
         // Neet also setRadius.
+        public double getCircumference()
+        {
+            return this.radius * 2 * 3.14159; 
+        }
+        public double getArea()
+        {
+            return this.radius * this.radius * 3.14159;
+        }
     }
 }
